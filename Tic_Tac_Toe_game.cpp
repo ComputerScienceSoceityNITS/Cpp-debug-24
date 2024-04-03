@@ -34,9 +34,9 @@ void takeTurn() {
 
 void switchPlayer() {
    if (player == 'X') {
-      player = 'X';
+      player = 'O';  //correctedn switchPlayer()
    } else {
-      player = 'O';
+      player = 'X';
    }
 }
 
@@ -46,10 +46,10 @@ bool checkWin() {
       if (board[i][0] == board[i][1] && board[i][1] == board[i][2]) {
          return true;
       }
+      if (board[0][i] == board[1][i] && board[1][i] == board[2][i]) {  //check column for a win (added)
+         return true;
+      }
    }
-
-   
-
    // Check diagonals for a win
    if (board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
       return true;
