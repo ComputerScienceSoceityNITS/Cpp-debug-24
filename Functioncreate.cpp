@@ -4,9 +4,14 @@
 
 using namespace std;
 
+void add(float num1, float num2);
+void subtract(float num1, float num2);
+void multiply(float num1, float num2);
+void divide(float num1, float num2);
+
 int main() {
     // Declare variables
-    float num1, num2, result;
+    float num1, num2;
     char op;
 
     // Get user input
@@ -22,29 +27,50 @@ int main() {
     // Perform calculation
     switch(op) {
         case '+':
-            result = num1 + num2;
+            add(num1,num2);
             break;
         case '-':
-            result = num1 - num2;
+            subtract(num1,num2);
             break;
         case '*':
-            result = num1 * num2;
+            multiply(num1,num2);
             break;
         case '/':
-            if (num2 == 0) {
-                cerr << "Error: division by zero\n";
-                return 1;
-            }
-            result = num1 / num2;
+            divide(num1,num2);
             break;
         default:
             cerr << "Error: invalid operator\n";
             return 1;
     }
 
-    // Display result
-    cout << setprecision(numeric_limits<double>::max_digits10) // Show all significant digits
-         << num1 << " " << op << " " << num2 << " = " << result << endl;
-
     return 0;
+}
+
+void add(float num1, float num2){
+    float result = num1+num2;
+    cout << num1 << " " << "+" << " " << num2 << " = " 
+         << setprecision(numeric_limits<double>::max_digits10) << result << endl;
+}
+
+void subtract(float num1, float num2){
+    float result = num1-num2;
+    cout << num1 << " " << "-" << " " << num2 << " = " 
+         << setprecision(numeric_limits<double>::max_digits10) << result << endl;
+}
+
+void multiply(float num1, float num2){
+    float result = num1*num2;
+    cout << num1 << " " << "*" << " " << num2 << " = " 
+         << setprecision(numeric_limits<double>::max_digits10) << result << endl;
+}
+
+void divide(float num1, float num2){
+    if(num2 == 0){
+        cerr << "Error: division by zero\n";
+    }
+    else{
+        float result = num1/num2;
+        cout << num1 << " " << "/" << " " << num2 << " = " 
+             << setprecision(numeric_limits<double>::max_digits10) << result << endl;
+    }
 }
