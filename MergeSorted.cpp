@@ -11,7 +11,9 @@ void print_vec(const std::vector<int> &vec)
 
 std::vector<int> merge_sorted(const std::vector<int> &vec1, const std::vector<int> &vec2)
 {
-    //write the function here
+    std::vector<int> merged_vec( vec1.size() + vec2.size() );
+    std::merge(vec1.begin(), vec1.end(), vec2.begin(), vec2.end(), merged_vec.begin());
+    return merged_vec;
 }
 
 int main()
