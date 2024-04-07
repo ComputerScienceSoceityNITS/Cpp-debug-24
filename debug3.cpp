@@ -23,9 +23,11 @@ int main() {
     cout<<"Enter the Number of elements  : ";
     cin>>n;
 
-    vector<int> nums(n);
+    vector<int> nums;
     for(int i = 0 ; i  < n ;i++){
-        cin>>nums[i];
+        int k;
+        cin>>k;
+        nums.emplace_back(k);
     }
     cout << "The second largest number in the array is: " << second_largest_number(nums) << endl;
     return 0;
