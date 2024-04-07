@@ -17,7 +17,7 @@ int count_vowels(string str) {
 int main() {
     string input;
     cout << "Enter a string: ";
-    cin>>input;
+    getline(cin, input); //changed input format to accomodate words after spaces
     cout << "The number of vowels in the string is: " << count_vowels(input) << endl;
     return 0;
 }
