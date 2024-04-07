@@ -5,10 +5,12 @@ using namespace std;
 
 int second_largest_number(vector<int>& nums) {
     int n = nums.size();
-    int largest = -1e5;
-    int second_largest = -1e5;
+    if(n==1)
+        return nums[0];
+    int largest = nums[0];
+    int second_largest = nums[0];
     for (int i = 0; i < n; i++) {
-        if (nums[i] > largest) {
+        if (nums[i] >= largest) {
             second_largest = largest;
             largest = nums[i];
         } else if (nums[i] > second_largest) {
